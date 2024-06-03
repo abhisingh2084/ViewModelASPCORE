@@ -1,4 +1,4 @@
-﻿@model ViewModelASPCORE.Models.
+﻿@model ViewModelASPCORE.Models.SchoolViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -9,53 +9,69 @@
 </div>
 
 <div class="container">
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Standard</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.myStudents)
-            {
+    @if (Model.myStudents.Any())
+    {
+        <h2>Students Data</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Gender</td>
-                    <td>@item.Standard</td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Standard</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var item in Model.myStudents)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Standard</td>
+                    </tr>
+                }
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
+    }
+    else
+    {
+        <h2>No Student Found</h2>
+    }
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Standard</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.myTeacher)
-            {
+    <h2>Teachers Data</h2>
+    <br />
+    @if (Model.myStudents.Any())
+    {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Gender</td>
-                    <td>@item.Standard</td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Qualification</th>
+                    <th>Salary</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var item in Model.myTeachers)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Qualification</td>
+                        <td>@item.Salary</td>
+                    </tr>
+                }
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
+    }
 
+    else
+    {
+        <h2>No Student Found</h2>
+    }
 </div>

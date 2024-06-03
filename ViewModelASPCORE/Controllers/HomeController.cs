@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ViewModelASPCORE.Models;
-using ViewModelASPCORE.Views;
+ 
 
 
 
